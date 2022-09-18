@@ -1,0 +1,29 @@
+@layout('layouts/main')
+
+@section('content')
+
+  <h3>Posts</h3>
+
+  <div class="text-end my-3">
+    <a href="{{ route('posts.create') }}" class="btn btn-primary"><b>Add</b></a>
+  </div>
+
+  @if(flashMessages.has('success'))
+    <div class="alert alert-success">
+      {{ flashMessages.get('success') }}
+    </div>
+  @end
+
+  @each(post in posts)
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3><a href="{{ route('posts.edit', post) }}">{{ post.title }}</a></h3>
+        <div>
+          <small class="text-muted d-block"><i>{{ post.createdAt.toISODate() }}</i></small>
+          <small class="text-muted d-block"><i>{{ post.category.name }}</i></small>
+        </div>
+      </div>
+    </div>
+  @endeach
+
+@end

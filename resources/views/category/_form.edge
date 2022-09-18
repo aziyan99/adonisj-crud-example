@@ -1,0 +1,7 @@
+<div class="mb-3">
+  <label for="name" class="form-label">Category name</label>
+  <input type="text" name="name" id="name" class="form-control {{ (flashMessages.has('errors.name')) ? 'is-invalid' : '' }}" value="{{ category.name }}">
+  @if(flashMessages.has('errors.name'))
+    <small class="invalid-feedback ms-2" role="alert">{{ flashMessages.get('errors.name') }}</small>
+  @end
+</div>

@@ -1,0 +1,30 @@
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input type="text" name="title" id="title"
+    class="form-control {{ (flashMessages.has('errors.title')) ? 'is-invalid' : '' }}"
+    value="{{ post.title }}">
+  @if(flashMessages.has('errors.title'))
+    <small class="invalid-feedback ms-2" role="alert">{{ flashMessages.get('errors.title') }}</small>
+  @end
+</div>
+<div class="mb-3">
+  <label for="category_id" class="form-label">Category</label>
+  <select name="category_id" id="category_id"
+    class="form-select {{ (flashMessages.has('errors.category_id')) ? 'is-invalid' : '' }}">
+    @each(category in categories)
+      <option value="{{ category.id }}" {{ (category.id === post.categoryId) ? 'selected' : '' }}>{{ category.name }}</option>
+    @endeach
+  </select>
+  @if(flashMessages.has('errors.title'))
+    <small class="invalid-feedback ms-2" role="alert">{{ flashMessages.get('errors.title') }}</small>
+  @end
+</div>
+<div class="mb-3">
+  <label for="body" class="form-label">Body</label>
+  <textarea name="body" id="body"
+    class="form-control {{ (flashMessages.has('errors.title')) ? 'is-invalid' : '' }}"
+    cols="30" rows="10">{{ post.body }}</textarea>
+  @if(flashMessages.has('errors.title'))
+    <small class="invalid-feedback ms-2" role="alert">{{ flashMessages.get('errors.title') }}</small>
+  @end
+</div>
