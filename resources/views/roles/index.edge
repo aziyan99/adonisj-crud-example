@@ -5,7 +5,7 @@
   <h3>Roles</h3>
 
   <div class="text-end my-3">
-    {{--  <a href="{{ route('posts.create') }}" class="btn btn-primary"><b>Add</b></a>  --}}
+    <a href="{{ route('roles.create') }}" class="btn btn-primary"><b>Add</b></a>
   </div>
 
   @if(flashMessages.has('success'))
@@ -17,7 +17,7 @@
   @each(role in roles)
     <div class="card mb-3">
       <div class="card-body">
-        <h3><a href="#">{{ role.name }}</a></h3>
+        <h3><a href="{{ route('roles.edit', role) }}">{{ role.name }}</a></h3>
         <div>
           @each(permission in role.permissions)
             <small class="text-muted d-block">{{ permission.name }}</small>

@@ -1,0 +1,19 @@
+@layout('layouts/main')
+
+@section('content')
+
+  <h3>Create Role</h3>
+  <hr>
+  <form action="{{ route('roles.store') }}" method="POST">
+
+    @include('roles/_form')
+
+    <div class="mb-3">
+      <button class="btn btn-primary"><b>Save</b></button>
+      <a href="{{ route('roles.index') }}" class="btn btn-default"><b>Cancel</b></a>
+    </div>
+
+  </form>
+
+
+@end
