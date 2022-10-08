@@ -23,6 +23,7 @@ import Route from '@ioc:Adonis/Core/Route'
 
 Route.resource('/categories', 'CategoriesController').except(['show'])
 Route.resource('/posts', 'PostsController').except(['show'])
+Route.get('/roles', 'RolesController.index').as('roles.index');
 
 Route.get('/', async ({ view }) => {
   return view.render('welcome')
